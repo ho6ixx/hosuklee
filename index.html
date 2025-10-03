@@ -19,15 +19,18 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background: #ffffff;
+        padding: 16px; /* 모바일 여백 */
+        box-sizing: border-box;
       }
       .title {
         font-weight: 900; /* Pretendard Black */
-        font-size: 100pt; /* as requested */
-        line-height: 1.1;
+        font-size: clamp(32px, 10vw, 100pt); /* 뷰포트에 맞춰 크기 자동 조정 */
+        line-height: 1.2;
         text-align: center;
         letter-spacing: -0.01em;
-        margin: 0 16px;
+        margin: 0;
         word-break: keep-all;
+        max-width: 100%;
       }
     </style>
   </head>
