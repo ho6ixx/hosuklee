@@ -4,25 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>나 인간 이호석 일 한번 저질러보리라</title>
-    <!-- Pretendard (Black) CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <style>
-      html,
-      body {
+      /* 기본 설정 */
+      html, body {
         margin: 0;
         padding: 0;
-        font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
-          Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR",
-          "Malgun Gothic", sans-serif;
+        background: #fff; /* 섹션 전부 흰 배경 유지 */
+        font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        height: 100%;
+      }
+
+      /* 스크롤 스냅: 다음 섹션으로 부드럽게 넘어가게 */
+      html {
+        scroll-behavior: smooth;               /* 앵커 이동 시 부드럽게 */
+      }
+      body {
+        scroll-snap-type: y mandatory;         /* 세로 방향 스냅 */
+        overscroll-behavior-y: contain;        /* 과스크롤 방지로 더 안정감 */
       }
 
       section {
-        min-height: 100vh;
+        min-height: 100vh;                     /* 화면 한 장짜리 */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -30,19 +35,20 @@
         padding: 16px;
         box-sizing: border-box;
         text-align: center;
+        scroll-snap-align: start;              /* 섹션의 시작에 스냅 */
+        scroll-snap-stop: always;              /* 빠른 스크롤에도 정확히 멈춤 */
+        background: #fff;                      /* 흰색 유지 */
       }
 
-      /* h1 전역 정의 */
+      /* 타이포 */
       h1 {
-        font-weight: 900; /* Pretendard Black */
+        font-weight: 900;
         font-size: clamp(28px, 8vw, 80pt);
         line-height: 1.2;
         letter-spacing: -0.01em;
         margin: 8px 0;
         word-break: keep-all;
       }
-
-      /* h2 전역 정의 */
       h2 {
         font-weight: 800;
         font-size: clamp(18px, 5vw, 36px);
@@ -62,6 +68,106 @@
         text-decoration: none;
       }
 
+      /* hero (첫 화면) + footer 느낌의 powered by */
+      .hero { position: relative; }
+      .powered {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        font-size: clamp(12px, 2.5vw, 14px);
+        font-weight: 400;
+        color: #999; /* 좀 더 미묘한 톤 */
+      }
+      .powered a { color: #999; font-weight: 500; }
+      .powered a:hover { color: #fff; background: #000; }
+
+      /* 등장 애니메이션: 처음엔 살짝 아래/투명 -> 보이게 */
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 600ms ease, transform 600ms ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* 사용자 ‘애니메이션 줄이기’ 선호 존중 */
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .reveal, .reveal.is-visible {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* 아래로 스크롤 힌트(선택) */
+      .scroll-hint {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 13px;
+        color: #aaa;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 첫 화면 -->
+    <section class="hero">
+      <h1 class="reveal is-visible">나 인간 이호석 일 한번 저질러보리라</h1>
+      <div class="scroll-hint">scroll</div>
+      <p class="powered">
+        powered by
+        <a href="https://instagram.com/mania_seoul" target="_blank" rel="noopener noreferrer">@mania_seoul</a>
+      </p>
+    </section>
+
+    <!-- 생애 섹션 -->
+    <section class="bio">
+      <div class="reveal">
+        <h2>이호석</h2>
+        <h2>Hosuk Lee</h2>
+        <h2>🩵ホソギ🩵</h2>
+        <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
+        <h2>
+          <a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">@ho6ixx</a>
+        </h2>
+        <br />
+        <h2>사단법인 턴스타일 코리아</h2>
+        <h2>
+          <a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">@turnstile.kr</a>
+        </h2>
+        <h2>Based in Seoul, Korea</h2>
+      </div>
+    </section>
+
+    <script>
+      // Intersection Observer로 .reveal 요소가 화면에 들어오면 서서히 나타남
+      const reveals = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // 한 번 보이면 계속 유지하려면 unobserve
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      reveals.forEach(el => {
+        // 첫 화면의 타이틀은 이미 is-visible 처리했음
+        if (!el.classList.contains('is-visible')) {
+          io.observe(el);
+        }
+      });
+    </script>
+  </body>
+</html>
       /* hero (첫 화면) */
       .hero {
         background: #fff;
