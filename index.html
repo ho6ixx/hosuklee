@@ -23,34 +23,31 @@
         padding: 16px;
         box-sizing: border-box;
         text-align: center;
+        flex-direction: column;
       }
-      .hero {
-        background: #fff;
-      }
-      .hero-title {
-        font-weight: 900;
-        font-size: clamp(32px, 10vw, 100pt);
+
+      /* h1 전역 정의 */
+      h1 {
+        font-weight: 900; /* Pretendard Black */
+        font-size: clamp(28px, 8vw, 80pt);
         line-height: 1.2;
         letter-spacing: -0.01em;
-        margin: 0;
+        margin: 8px 0;
         word-break: keep-all;
       }
-      .bio {
-        background: #f8f8f8;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .bio h2 {
+
+      /* h2 전역 정의 */
+      h2 {
         font-weight: 800;
         font-size: clamp(18px, 5vw, 36px);
         margin: 6px 0;
       }
-      .bio a {
+
+      a {
         color: #000;
         text-decoration: none;
-        font-weight: 600;
       }
-      .bio a:hover {
+      a:hover {
         text-decoration: underline;
       }
     </style>
@@ -58,29 +55,33 @@
   <body>
     <!-- 첫 화면 -->
     <section class="hero">
-      <h1 class="hero-title">나 인간 이호석 일 한번 저질러보리라</h1>
+      <h1>나 인간 이호석 일 한번 저질러보리라</h1>
     </section>
 
     <!-- 스크롤하면 나오는 생애 -->
     <section class="bio">
-      <div>
-        <h2>이호석</h2>
-        <h2>Hosuk Lee</h2>
-        <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
-        <h1>
-          <a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">
-            @ho6ixx
-          </a>
-        </h1>
-        <br>
-        <h2>사단법인 턴스타일 코리아</h2>
-        <h1>
-          <a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">
-            @turnstile.kr
-          </a>
-        </h1>
-        <h2>Based in Seoul, Korea</h2>
-      </div>
+      <h2>이호석</h2>
+      <h2>Hosuk Lee</h2>
+      <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
+
+      <!-- 인스타그램 링크를 h1으로 강조 -->
+      <h1>
+        <a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">
+          @ho6ixx
+        </a>
+      </h1>
+
+      <br />
+
+      <h2>사단법인 턴스타일 코리아</h2>
+
+      <h1>
+        <a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">
+          @turnstile.kr
+        </a>
+      </h1>
+
+      <h2>Based in Seoul, Korea</h2>
     </section>
   </body>
 </html>
