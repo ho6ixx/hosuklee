@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>나 인간 이호석 일 한번 저질러보리라</title>
     <!-- Pretendard (Black) CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
     <style>
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
-        font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial,
-          "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+        font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR",
+          "Malgun Gothic", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
+
       section {
         min-height: 100vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 16px;
         box-sizing: border-box;
         text-align: center;
-        flex-direction: column;
       }
 
       /* h1 전역 정의 */
@@ -46,14 +52,45 @@
       a {
         color: #000;
         text-decoration: none;
-        padding: 4px 8px;          /* 배경 강조용 여백 */
-        border-radius: 4px;        /* 모서리 둥글게 */
-        transition: all 0.3s ease; /* 부드럽게 전환 */
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
       }
       a:hover {
-        color: #fff;               /* 글자색 흰색 */
-        background: #000;          /* 배경 검정 */
+        color: #fff;
+        background: #000;
         text-decoration: none;
+      }
+
+      /* hero (첫 화면) */
+      .hero {
+        background: #fff;
+        position: relative;
+      }
+
+      /* footer 느낌의 powered by */
+      .powered {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        font-size: clamp(12px, 2.5vw, 14px);
+        font-weight: 400;
+        color: #666;
+      }
+      .powered a {
+        color: #666;
+        font-weight: 500;
+      }
+      .powered a:hover {
+        color: #fff;
+        background: #000;
+      }
+
+      /* bio (생애 페이지) */
+      .bio {
+        background: #f8f8f8;
       }
     </style>
   </head>
@@ -61,6 +98,18 @@
     <!-- 첫 화면 -->
     <section class="hero">
       <h1>나 인간 이호석 일 한번 저질러보리라</h1>
+
+      <!-- footer 느낌 하단 문구 -->
+      <p class="powered">
+        powered by
+        <a
+          href="https://instagram.com/mania_seoul"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @mania_seoul
+        </a>
+      </p>
     </section>
 
     <!-- 스크롤하면 나오는 생애 -->
@@ -71,7 +120,11 @@
       <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
 
       <h2>
-        <a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://instagram.com/ho6ixx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           @ho6ixx
         </a>
       </h2>
@@ -81,7 +134,11 @@
       <h2>사단법인 턴스타일 코리아</h2>
 
       <h2>
-        <a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://instagram.com/turnstile.kr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           @turnstile.kr
         </a>
       </h2>
