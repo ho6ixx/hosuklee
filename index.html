@@ -3,38 +3,73 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>이호석 : 1993년 4월 16일 출생</title>
+    <title>나 인간 이호석 일 한번 저질러보리라</title>
     <!-- Pretendard (Black) CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <style>
       html, body {
-        height: 100%;
         margin: 0;
+        padding: 0;
+        font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial,
+          "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
-      body {
+      section {
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        background: #ffffff;
-        padding: 16px; /* 모바일 여백 */
+        padding: 16px;
         box-sizing: border-box;
-      }
-      .title {
-        font-weight: 900; /* Pretendard Black */
-        font-size: clamp(32px, 10vw, 100pt); /* 뷰포트에 맞춰 크기 자동 조정 */
-        line-height: 1.2;
         text-align: center;
+      }
+      .hero {
+        background: #fff;
+      }
+      .hero-title {
+        font-weight: 900;
+        font-size: clamp(32px, 10vw, 100pt);
+        line-height: 1.2;
         letter-spacing: -0.01em;
         margin: 0;
         word-break: keep-all;
-        max-width: 100%;
+      }
+      .bio {
+        background: #f8f8f8;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .bio h2 {
+        font-weight: 800;
+        font-size: clamp(24px, 6vw, 48px);
+        margin: 0 0 8px;
+      }
+      .bio p {
+        margin: 4px 0;
+        font-size: clamp(16px, 4vw, 24px);
+        line-height: 1.5;
+      }
+      .bio a {
+        color: #000;
+        text-decoration: none;
+        font-weight: 600;
       }
     </style>
   </head>
   <body>
-    <h1 class="title">나 인간 이호석 일 한번 저질러보리라</h1>
+    <!-- 첫 화면 -->
+    <section class="hero">
+      <h1 class="hero-title">나 인간 이호석 일 한번 저질러보리라</h1>
+    </section>
+
+    <!-- 스크롤하면 나오는 생애 -->
+    <section class="bio">
+      <div>
+        <h2>이호석</h2>
+        <p>1993년 4월 16일 오전 10시 53분 출생</p>
+        <p><a href="https://instagram.com/ho6ixx" target="_blank">@ho6ixx</a></p>
+      </div>
+    </section>
   </body>
 </html>
