@@ -15,6 +15,7 @@
         font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
           Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
         -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        -webkit-tap-highlight-color: transparent;
       }
       section {
         min-height: 100vh; display: flex; flex-direction: column;
@@ -28,7 +29,7 @@
         font-weight: 800; font-size: clamp(18px, 5vw, 36px); margin: 6px 0;
       }
       a {
-        color: #000; text-decoration: none; padding: 4px 8px; border-radius: 4px; transition: all .25s ease;
+        color: #000; text-decoration: none; padding: 4px 8px; border-radius: 4px; transition: all .2s ease;
       }
       a:hover { color: #fff; background: #000; }
 
@@ -42,23 +43,51 @@
       .powered a:hover { color: #fff; background: #000; }
 
       /* COVID nav 영역 */
-      .covid-nav {
-        gap: 14px;
-      }
+      .covid-nav { gap: 14px; }
       .covid-links {
         display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 10px;
       }
 
-      /* ⬇ 폰트 크기 수정됨 */
+      /* 데스크톱/기본 버튼 */
       .pill {
         border: 4px solid #000;
         border-radius: 9999px;
         padding: 10px 24px;
         font-weight: 700;
-        font-size: clamp(18px, 5vw, 36px); /* h2와 동일한 크기 */
+        font-size: clamp(18px, 5vw, 36px); /* h2와 동일 */
         line-height: 1.2;
+        min-height: 44px;                 /* 터치 타깃 최소 높이 */
       }
       .pill:hover { color:#fff; background:#000; }
+
+      /* ===== 모바일 최적화 ===== */
+      @media (max-width: 600px) {
+        section { padding: 20px 16px; }
+
+        /* 헤드라인은 자동 줄바꿈에 맡김 */
+        h1 { font-size: clamp(28px, 9vw, 64px); }
+
+        /* 버튼을 큼직하게, 넓게 */
+        .covid-links {
+          gap: 10px;
+          width: 100%;
+        }
+        .pill {
+          display: block;
+          width: min(92%, 420px);        /* 화면 폭 거의 꽉 차게 */
+          margin: 0 auto;
+          padding: 14px 20px;            /* 터치 여백 늘림 */
+          font-size: clamp(18px, 6vw, 28px);
+          border-width: 3px;             /* 작은 화면에서 보더 과하지 않게 */
+          min-height: 48px;              /* 더 넉넉한 터치 타깃 */
+          border-radius: 9999px;
+        }
+      }
+
+      /* 큰 태블릿(가로)에서 버튼 간격/패딩 살짝 보정 */
+      @media (min-width: 601px) and (max-width: 1024px) {
+        .pill { padding: 12px 22px; }
+      }
     </style>
   </head>
   <body>
@@ -88,8 +117,8 @@
     <section class="covid-nav" id="covid">
       <h1>이호석의 생애</h1>
       <div class="covid-links">
-        <a class="pill" href="/before/">PRE-COVID</a>
-        <a class="pill" href="/after/">POST-COVID</a>
+        <a class="pill" href="/before/">Pre-COVID</a>
+        <a class="pill" href="/after/">Post-COVID</a>
       </div>
     </section>
   </body>
