@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="ko">
   <head>
@@ -16,6 +17,7 @@
         -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
         -webkit-tap-highlight-color: transparent;
       }
+
       section {
         min-height: 100vh;
         display: flex;
@@ -27,7 +29,6 @@
         text-align: center;
       }
 
-      /* 기본 텍스트 스타일 */
       h1 {
         font-weight: 900;
         font-size: clamp(28px, 8vw, 80pt);
@@ -36,6 +37,7 @@
         margin: 8px 0;
         word-break: keep-all;
       }
+
       h2 {
         font-weight: 800;
         font-size: clamp(18px, 5vw, 36px);
@@ -70,40 +72,39 @@
       .covid-nav { gap: 14px; }
       .covid-links {
         display: flex;
-        flex-direction: column;
-        gap: 16px;
-        align-items: center;
+        flex-wrap: wrap;
         justify-content: center;
-        margin-top: 10px;
-        width: 100%;
+        align-items: center;
+        gap: 12px;
+        margin-top: 12px;
       }
 
-      /* pill 버튼 */
+      /* 버튼 스타일 */
       .pill {
         border: 3px solid #000;
         border-radius: 9999px;
         font-weight: 700;
         line-height: 1.2;
-        font-size: clamp(16px, 3vw, 28px); /* h1 크기 변화에 비례 */
-        padding: clamp(8px, 2vw, 14px) clamp(20px, 6vw, 36px);
-        width: clamp(200px, 50vw, 320px);  /* 버튼 폭도 반응형 */
+        font-size: clamp(16px, 3vw, 28px);
+        padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 24px); /* 좌우 여백 줄임 */
         transition: all 0.25s ease;
+        text-align: center;
+        min-width: 140px;
       }
-      .pill:hover {
-        color:#fff;
-        background:#000;
-      }
+      .pill:hover { color:#fff; background:#000; }
 
-      /* 모바일 최적화 */
+      /* 모바일: 세로 정렬 */
       @media (max-width: 600px) {
         .covid-links {
-          gap: 12px;
+          flex-direction: column;
+          gap: 14px;
         }
         .pill {
+          width: 70%;
+          max-width: 280px;
           border-width: 2px;
           font-size: clamp(16px, 5vw, 22px);
-          width: clamp(180px, 70vw, 280px);
-          padding: 10px 20px;
+          padding: 10px 14px; /* 좌우 여백 줄임 */
         }
       }
     </style>
