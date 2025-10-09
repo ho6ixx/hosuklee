@@ -1,103 +1,63 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>나 인간 이호석 일 한번 저질러보리라</title>
-    <!-- Pretendard (Black) CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        background: #fff; /* 흰색 배경 고정 */
+      html, body {
+        margin: 0; padding: 0; background: #fff;
         font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
-          Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR",
-          "Malgun Gothic", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+          Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+        -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
       }
-
       section {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        box-sizing: border-box;
-        text-align: center;
+        min-height: 100vh; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; text-align: center;
       }
-
       h1 {
-        font-weight: 900;
-        font-size: clamp(28px, 8vw, 80pt);
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        margin: 8px 0;
-        word-break: keep-all;
+        font-weight: 900; font-size: clamp(28px, 8vw, 80pt);
+        line-height: 1.2; letter-spacing: -0.01em; margin: 8px 0; word-break: keep-all;
       }
-
       h2 {
-        font-weight: 800;
-        font-size: clamp(18px, 5vw, 36px);
-        margin: 6px 0;
+        font-weight: 800; font-size: clamp(18px, 5vw, 36px); margin: 6px 0;
       }
-
       a {
-        color: #000;
-        text-decoration: none;
-        padding: 4px 8px;
-        border-radius: 4px;
-        transition: all 0.25s ease;
+        color: #000; text-decoration: none; padding: 4px 8px; border-radius: 4px; transition: all .25s ease;
       }
-      a:hover {
-        color: #fff;
-        background: #000;
-      }
+      a:hover { color: #fff; background: #000; }
 
-      /* hero footer 느낌 */
-      .hero {
-        position: relative;
-      }
+      /* hero footer */
+      .hero { position: relative; }
       .powered {
-        position: absolute;
-        bottom: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 0;
-        font-size: clamp(12px, 2.5vw, 14px);
-        font-weight: 400;
-        color: #999;
+        position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+        margin: 0; font-size: clamp(12px, 2.5vw, 14px); font-weight: 400; color: #999;
       }
-      .powered a {
-        color: #999;
-        font-weight: 500;
+      .powered a { color: #999; font-weight: 500; }
+      .powered a:hover { color: #fff; background: #000; }
+
+      /* COVID nav 영역 */
+      .covid-nav {
+        gap: 14px;
       }
-      .powered a:hover {
-        color: #fff;
-        background: #000;
+      .covid-links {
+        display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 10px;
       }
+      .pill {
+        border: 1px solid #000; border-radius: 9999px; padding: 10px 16px; font-weight: 700;
+      }
+      .pill:hover { color:#fff; background:#000; }
     </style>
   </head>
   <body>
     <!-- 첫 화면 -->
     <section class="hero">
       <h1>나 인간 이호석 일 한번 저질러보리라</h1>
-
-      <!-- footer 느낌 하단 문구 -->
       <p class="powered">
         powered by
-        <a
-          href="https://instagram.com/mania_seoul"
-          target="_blank"
-          rel="noopener noreferrer"
-          >@mania_seoul</a
-        >
+        <a href="https://instagram.com/mania_seoul" target="_blank" rel="noopener noreferrer">@mania_seoul</a>
       </p>
     </section>
 
@@ -107,28 +67,21 @@
       <h2>hosuk lee</h2>
       <h2>🩵ホソギ🩵</h2>
       <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
-      <h2>
-        <a
-          href="https://instagram.com/ho6ixx"
-          target="_blank"
-          rel="noopener noreferrer"
-          >@ho6ixx</a
-        >
-      </h2>
-
+      <h2><a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">@ho6ixx</a></h2>
       <br />
-
       <h2>사단법인 턴스타일 코리아</h2>
-      <h2>
-        <a
-          href="https://instagram.com/turnstile.kr"
-          target="_blank"
-          rel="noopener noreferrer"
-          >@turnstile.kr</a
-        >
-      </h2>
-
+      <h2><a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">@turnstile.kr</a></h2>
       <h2>based in seoul, south korea</h2>
+    </section>
+
+    <!-- COVID 이전/이후로 이동 -->
+    <section class="covid-nav">
+      <h2>COVID 타임라인</h2>
+      <div class="covid-links">
+        <!-- 폴더 방식: /before/, /after/ -->
+        <a class="pill" href="/before/">covid 이전</a>
+        <a class="pill" href="/after/">covid 이후</a>
+      </div>
     </section>
   </body>
 </html>
