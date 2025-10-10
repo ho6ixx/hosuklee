@@ -1,146 +1,179 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>나 인간 이호석 일 한번 저질러보리라</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <style>
+      :root{
+        --wrap-max: 1100px;
+        --gap: 28px;
+        --card-bg: #f8f6f6;   /* 박스 배경(연핑/연회색 톤으로 조정 가능) */
+        --card-br: 2px;
+        --radius: 18px;
+      }
+
       html, body {
         margin: 0; padding: 0; background: #fff;
         font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
           Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
         -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-        -webkit-tap-highlight-color: transparent;
       }
 
-      section {
-        min-height: 100vh;
+      /* ===== 배경 타이틀(영구 고정) ===== */
+      .bg-title{
+        position: fixed;
+        inset: 0;                 /* 화면 중앙 배치용 */
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 16px;
-        box-sizing: border-box;
-        text-align: center;
+        z-index: 0;               /* 가장 뒤 */
+        pointer-events: none;     /* 클릭 막지 않기 */
+        user-select: none;
       }
-
-      h1 {
+      .bg-title span{
         font-weight: 900;
-        font-size: clamp(28px, 8vw, 80pt);
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        margin: 8px 0;
+        letter-spacing: -0.02em;
+        line-height: .95;
+        font-size: clamp(72px, 26vw, 28rem); /* 화면에 꽉 차게 */
+        color: #000;
+        opacity: .06;             /* 배경처럼 은은하게 */
+        text-align: center;
         word-break: keep-all;
       }
 
-      h2 {
-        font-weight: 800;
-        font-size: clamp(18px, 5vw, 36px);
-        margin: 6px 0;
+      /* ===== 실제 콘텐츠 컨테이너 ===== */
+      .wrap{
+        position: relative;
+        z-index: 1;               /* 배경 위로 */
+        max-width: var(--wrap-max);
+        margin: 0 auto;
+        padding: 16vh 16px 12vh;  /* 위쪽 여백을 넉넉히 */
+        box-sizing: border-box;
       }
 
-      a {
-        color: #000;
-        text-decoration: none;
-        padding: 4px 8px;
-        border-radius: 4px;
-        transition: all .25s ease;
-      }
-      a:hover { color: #fff; background: #000; }
-
-      /* hero footer */
-      .hero { position: relative; }
-      .powered {
-        position: absolute;
-        bottom: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 0;
-        font-size: clamp(12px, 2.5vw, 14px);
-        font-weight: 400;
-        color: #999;
-      }
-      .powered a { color: #999; font-weight: 500; }
-      .powered a:hover { color: #fff; background: #000; }
-
-      /* COVID nav 영역 */
-      .covid-nav { gap: 14px; }
-      .covid-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        margin-top: 12px;
-      }
-
-      /* 버튼 스타일 */
-      .pill {
-        border: 3px solid #000;
-        border-radius: 9999px;
-        font-weight: 700;
-        line-height: 1.2;
-        font-size: clamp(16px, 3vw, 28px);
-        padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 24px); /* 좌우 여백 줄임 */
-        transition: all 0.25s ease;
+      /* 섹션 헤더 */
+      .section-head{
         text-align: center;
-        min-width: 140px;
+        margin-bottom: 24px;
       }
-      .pill:hover { color:#fff; background:#000; }
+      .section-head h1{
+        font-weight: 900;
+        font-size: clamp(28px, 6vw, 64px);
+        margin: 0 0 4px;
+        letter-spacing: -0.01em;
+      }
+      .section-head p{
+        margin: 6px 0 0;
+        color: #666;
+        font-size: clamp(14px, 2.8vw, 16px);
+      }
 
-      /* 모바일: 세로 정렬 */
-      @media (max-width: 600px) {
-        .covid-links {
-          flex-direction: column;
-          gap: 14px;
-        }
-        .pill {
-          width: 70%;
-          max-width: 280px;
-          border-width: 2px;
-          font-size: clamp(16px, 5vw, 22px);
-          padding: 10px 14px; /* 좌우 여백 줄임 */
-        }
+      /* 카드 스택(세로 쌓기) */
+      .stack{
+        display: grid;
+        gap: var(--gap);
+      }
+
+      /* 카드 공통 */
+      .card{
+        background: var(--card-bg);
+        border: var(--card-br) solid #000;
+        border-radius: var(--radius);
+        padding: clamp(16px, 2.4vw, 28px);
+        box-sizing: border-box;
+      }
+      .card h2{
+        margin: 0 0 10px;
+        font-weight: 800;
+        font-size: clamp(20px, 4.4vw, 32px);
+        letter-spacing: -0.01em;
+      }
+      .card p{
+        margin: 6px 0 0;
+        font-size: clamp(14px, 3.2vw, 18px);
+        line-height: 1.6;
+      }
+
+      /* 카드 액션(우하단 작은 링크 스타일) */
+      .card .actions{
+        display: flex; gap: 12px; justify-content: flex-end; align-items: center;
+        margin-top: 14px;
+        font-size: 13px;
+      }
+      .link{
+        color:#000; text-decoration:none; font-weight:700;
+        padding: 6px 10px; border-radius: 9999px; transition: .2s;
+        border:1px solid #000; background:#fff;
+      }
+      .link:hover{ color:#fff; background:#000; }
+
+      /* 이미지 카드 예시 */
+      .card.media{
+        padding: clamp(10px, 1.8vw, 16px);
+      }
+      .media figure{
+        margin: 0; position: relative; border-radius: 14px; overflow: hidden; border: 1px solid #000;
+        background: #f1f1f1;
+        aspect-ratio: 16/9;       /* 필요 시 변경 */
+      }
+      .media img{ width:100%; height:100%; object-fit: cover; display: block; }
+
+      /* 반응형 여백/폭 보정 */
+      @media (max-width: 600px){
+        :root{ --gap: 18px; }
+        .wrap{ padding-top: 14vh; }
+        .card{ border-width: 1.5px; border-radius: 16px; }
       }
     </style>
   </head>
   <body>
-    <!-- 첫 화면 -->
-    <section class="hero">
-      <h1>나 인간 이호석 일 한번 저질러보리라</h1>
-      <p class="powered">
-        powered by
-        <a href="https://instagram.com/mania_seoul" target="_blank" rel="noopener noreferrer">@mania_seoul</a>
-      </p>
-    </section>
+    <!-- 배경으로 깔리는 거대 타이틀 -->
+    <div class="bg-title" aria-hidden="true">
+      <span>나 인간 이호석<br/>일 한번 저질러보리라</span>
+    </div>
 
-    <!-- 생애 -->
-    <section class="bio">
-      <h2>이호석</h2>
-      <h2>hosuk lee</h2>
-      <h2>🩵ホソギ🩵</h2>
-      <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
-      <h2><a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">@ho6ixx</a></h2>
-      <br />
-      <h2>사단법인 턴스타일 코리아</h2>
-      <h2><a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">@turnstile.kr</a></h2>
-      <h2>based in seoul, south korea</h2>
-    </section>
+    <!-- 실제 내용 -->
+    <main class="wrap">
+      <header class="section-head">
+        <h1>이호석의 생애</h1>
+        <p>Pre-COVID / Post-COVID 타임라인과 카드 콘텐츠</p>
+      </header>
 
-    <!-- COVID 이전/이후로 이동 -->
-    <section class="covid-nav" id="covid">
-      <h1>이호석의 생애</h1>
-      <div class="covid-links">
-        <!-- <a class="pill" href="/before/">Pre-COVID</a>
-        <a class="pill" href="/after/">Post-COVID</a> -->
-        <h2><a href="/before/">PRE-COVID</a></h2>
-        <h2><a href="/after/">POST-COVID</a></h2>
-      </div>
-    </section>
+      <section class="stack">
+        <!-- 카드 1: 프리/포스트 이동 -->
+        <article class="card">
+          <h2>Timeline</h2>
+          <p>시대를 나누어 기록합니다. 각 카드로 들어가 상세를 확인하세요.</p>
+          <div class="actions">
+            <a class="link" href="/before/">Pre-COVID</a>
+            <a class="link" href="/after/">Post-COVID</a>
+          </div>
+        </article>
+
+        <!-- 카드 2: 이미지/배너 스타일 -->
+        <article class="card media">
+          <figure>
+            <!-- 이미지가 없다면 배경색만으로도 깔끔 -->
+            <!-- 필요 시 /images/banner.jpg 로 교체 -->
+            <img src="https://picsum.photos/1200/675" alt="banner sample"/>
+          </figure>
+          <div class="actions">
+            <a class="link" target="_blank" rel="noopener noreferrer" href="https://instagram.com/ho6ixx">Instagram ↗</a>
+          </div>
+        </article>
+
+        <!-- 카드 3: 자유 내용 -->
+        <article class="card">
+          <h2>Note</h2>
+          <p>여기에 자유롭게 텍스트, 링크, 간단한 목록 등을 넣을 수 있어요.</p>
+          <p>예: 협업 제안, 아카이브 링크, 플레이리스트 등.</p>
+          <div class="actions">
+            <a class="link" href="/contact/">Contact</a>
+          </div>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
