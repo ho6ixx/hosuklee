@@ -83,19 +83,29 @@ a:hover {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* h1은 가운데 */
+  justify-content: space-between;   /* 중앙 영역 + 하단 powered를 위아래로 배치 */
   align-items: center;
   text-align: center;
-  position: relative;
+  padding: 40px 16px 24px;          /* 위 / 좌우 / 아래 여백 */
+  box-sizing: border-box;
+}
+
+/* h1을 정확히 화면 중앙에 두는 래퍼 */
+.hero-center-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;          /* 세로 중앙 */
+  align-items: center;              /* 가로 중앙 */
+  width: 100%;
 }
 
 .powered {
-  margin-top: auto;        /* 위 요소를 밀어내고 아래로 내려감 */
-  padding-bottom: 24px;    /* 아래 여백 */
   font-size: clamp(12px, 2.5vw, 14px);
   font-weight: 400;
   color: #999;
+  margin-bottom: 8px;               /* 아래 여백 약간 */
 }
+
 .powered a {
   color: #999;
 }
