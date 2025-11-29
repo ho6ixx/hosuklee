@@ -25,49 +25,45 @@ a:hover {
   background: #000;
 }
 
-/* ===== 제목: 처음엔 화면 정중앙, 스크롤 후 상단 고정 ===== */
+/* ===== 제목: 중앙 → 스크롤 후 상단 고정 ===== */
 .hero-title {
   position: fixed;
   left: 50%;
-  top: 50%;                        /* 처음에는 화면 정중앙 */
+  top: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   text-align: center;
   font-weight: 900;
 
-  /* 데스크탑 기준 꽤 크게 + 반응형 */
   font-size: clamp(40px, 8vw, 110px);
-
   line-height: 1.1;
   letter-spacing: -0.01em;
   word-break: keep-all;
 
-  /* 줄 수 조절 (최대 3줄 근처) */
   width: 100%;
-  max-width: 26ch;                 /* 글자 수 기준 폭 제한 */
+  max-width: 26ch;
   padding: 0 16px;
 
-  z-index: 1;                      /* 카드들이 위에 올라오도록 낮게 */
-  pointer-events: none;            /* 뒤에 있는 카드 클릭 막지 않기 */
+  z-index: 1;
+  pointer-events: none;
 
   transition:
     top 0.35s ease,
     transform 0.35s ease;
 }
 
-/* 스크롤 후 상단 고정 상태 */
+/* 스크롤 후 상단으로 이동 */
 .hero-title.pinned {
-  top: 32px;                       /* 상단에서 약간 아래 */
-  transform: translate(-50%, 0);   /* 위로 올라간 느낌만, 크기는 그대로 */
+  top: 32px;
+  transform: translate(-50%, 0);
 }
 
-/* 화면이 좁아질수록 폭 줄여서 최대 3줄 정도까지만 */
+/* 좁은 화면에서 글자 줄 수 제어 */
 @media (max-width: 768px) {
   .hero-title {
     max-width: 22ch;
   }
 }
-
 @media (max-width: 480px) {
   .hero-title {
     max-width: 18ch;
@@ -95,16 +91,17 @@ a:hover {
   background: #000;
 }
 
-/* ===== 실제 콘텐츠 영역: 첫 화면 한 뷰포트 아래에서 시작 ===== */
+/* ===== 본문은 제목 아래에서 시작 ===== */
 main {
-  margin-top: 100vh;               /* 첫 화면(타이틀)만큼 띄워놓기 */
+  margin-top: 100vh;
 }
 
-/* 섹션 공통 */
+/* ===== 섹션 공통 ===== */
 section {
   min-height: 100vh;
   padding: 40px 16px;
   box-sizing: border-box;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,11 +112,14 @@ section {
   text-align: left;
 }
 
-/* 카드들을 가운데 세워둔 리스트 */
+/* 카드 그리드 */
+/* 💡 데스크탑: 640px 제한 / 모바일: 자동으로 줄어듦 */
 .card-grid {
   width: 100%;
-  max-width: 640px;
+  max-width: 640px;   /* 이게 데스크탑 기준 최대 너비 */
+  padding: 0 16px;    /* 모바일에서 양쪽 여백 확보 */
   margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -130,74 +130,73 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
+
   border: 1px solid #000;
   background: #fff;
-  padding: 0;
   overflow: hidden;
-  z-index: 2;                /* hero-title 위에 올라오도록 */
+  padding: 0;
+  z-index: 2;
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
 
-/* 이미지 영역 */
-.project-image {
-  width: 100%;
-  aspect-ratio: 3 / 4;       /* 세로형 이미지 비율 */
-  background-size: cover;
-  background-position: center;
-  background-color: #eee;
-}
-
-/* 각 카드별로 이미지 경로를 여기서 지정하면 됨 */
-.project-image--1 {
-  /* 예시: url 안에 네 이미지 경로 넣어 */
-  /* background-image: url("/images/about.jpg"); */
-  background-image: url("/images/bio.jpeg");
-}
-
-.project-image--2 {
-  /* background-image: url("/images/works.jpg"); */
-}
-
-.project-image--3 {
-  /* background-image: url("/images/dingo.jpg"); */
-}
-
-/* 텍스트 영역 */
-.project-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  border-top: 1px solid #000;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: none;
-}
-
-.project-title {
-  font-weight: 600;
-}
-
-.project-link {
-  font-weight: 500;
-}
-
-/* 카드 호버 시 살짝 띄우기 */
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-/* 모바일에서 카드 간격과 패딩 조금 줄이기 */
+/* 호버 시 띄우기 */
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
+}
+
+/* 이미지 영역 */
+.project-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  background-color: #eee;
+}
+
+/* 개별 이미지 연결 */
+.project-image--1 {
+  background-image: url("/images/bio.jpeg");
+}
+.project-image--2 {}
+.project-image--3 {}
+
+/* 카드 메타 */
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 16px;
+  border-top: 1px solid #000;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+
+  /* 🔥 대문자 강제 없음 */
+  text-transform: none;
+}
+
+/* 텍스트 */
+.project-title {
+  font-weight: 600;
+}
+.project-link {
+  font-weight: 500;
+}
+
+/* ===== 모바일 최적화 ===== */
 @media (max-width: 600px) {
   section {
     padding: 32px 12px;
   }
   .card-grid {
     gap: 32px;
+    padding: 0 12px;     /* 모바일에서 양쪽 여백 더 줄임 */
   }
   .project-meta {
     padding: 10px 12px;
