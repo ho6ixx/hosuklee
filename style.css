@@ -57,15 +57,24 @@ a:hover {
 .main-title {
   position: fixed;
   left: 50%;
-  top: 50%;                           /* 처음에는 화면 정중앙 */
+  top: 50%;                       /* 처음에는 화면 정중앙 */
   transform: translate(-50%, -50%);
   margin: 0;
   text-align: center;
   font-weight: 900;
-  font-size: clamp(28px, 8vw, 80pt);
-  line-height: 1.2;
+
+  /* 🔥 폰트 크기 다시 조정 */
+  /* 데스크탑에선 크게, 모바일에선 적당히 */
+  font-size: clamp(40px, 7vw, 96px);
+
+  line-height: 1.1;
   letter-spacing: -0.01em;
   word-break: keep-all;
+
+  /* 🔥 줄 수(최대 3줄 근처) 컨트롤 */
+  width: 100%;
+  max-width: 26ch;      /* 글자 수 기준 폭 제한 */
+  padding: 0 16px;
   z-index: 5;
   transition:
     top 0.35s ease,
@@ -75,7 +84,20 @@ a:hover {
 /* 스크롤 후 상단 고정 상태 */
 .main-title.pinned {
   top: 32px;                          /* 상단에서 약간 떨어진 위치 */
-  transform: translate(-50%, 0);      /* Y축 이동만 0으로 */
+  transform: translate(-50%, 0);
+}
+
+/* 화면이 더 좁아질수록 줄 수를 늘려주기 위해 폭 살짝 줄임 */
+@media (max-width: 768px) {
+  .main-title {
+    max-width: 22ch;   /* 2~3줄 정도 */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    max-width: 18ch;   /* 최대 3줄 정도까지 */
+  }
 }
 
 /* powered: 화면 하단 고정 */
