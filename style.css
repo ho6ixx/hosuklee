@@ -1,4 +1,4 @@
-/* 기본 설정 */
+/* 기본 전체 설정 */
 html,
 body {
   margin: 0;
@@ -12,12 +12,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 공통 텍스트 스타일 */
-h1,
-h2 {
-  margin: 0;
-}
-
+/* 링크 공통 */
 a {
   color: #000;
   text-decoration: none;
@@ -30,98 +25,74 @@ a:hover {
   background: #000;
 }
 
-/* =========================
-   1. HERO (스크롤 연출)
-   ========================= */
-
-/* hero 전체 높이를 2뷰포트로 줘서 스크롤 여유 확보 */
-.hero {
-  height: 200vh;
-  background: #fff;
-}
-
-/* sticky-hero: 스크롤 시 상단에 고정되는 래퍼 */
-.sticky-hero {
-  position: sticky;
-  top: 0;
-  height: 100vh; /* 항상 한 화면 채우기 */
-  display: flex;
-  justify-content: center; /* 처음엔 세로 중앙 */
-  align-items: center;
-  padding: 0 16px;
-  box-sizing: border-box;
-  background: #fff;
-}
-
-/* 중앙에 표시되는 h1 */
-.hero-title {
+/* 제목 스타일 (고정 + 위치 애니메이션) */
+.main-title {
+  position: fixed;
+  left: 50%;
+  top: 50%;                           /* 처음에는 화면 정중앙 */
+  transform: translate(-50%, -50%);
+  margin: 0;
+  text-align: center;
   font-weight: 900;
   font-size: clamp(28px, 8vw, 80pt);
   line-height: 1.2;
   letter-spacing: -0.01em;
   word-break: keep-all;
-  text-align: center;
+  z-index: 5;
+  transition:
+    top 0.35s ease,
+    transform 0.35s ease;
 }
 
-/* 스크롤 내려갔을 때 상단으로 붙이는 상태 (JS에서 클래스 토글) */
-.sticky-hero.pinned {
-  justify-content: flex-start; /* 위에서부터 정렬 */
-  align-items: flex-start;
-  padding-top: 32px;           /* 상단 여백 */
+/* 스크롤 후 상단 고정 상태 */
+.main-title.pinned {
+  top: 32px;                          /* 상단에서 약간 떨어진 위치 */
+  transform: translate(-50%, 0);      /* Y축 이동만 0으로 */
 }
 
-/* pinned 상태에서도 h1 크기는 그대로 유지 (변경 없음) */
-
-/* =========================
-   2. BIO 섹션
-   ========================= */
-
-.bio {
-  padding: 80px 16px 160px;
-  max-width: 960px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.bio h2 {
-  font-weight: 800;
-  font-size: clamp(18px, 5vw, 36px);
-  margin: 6px 0;
-}
-
-/* =========================
-   3. powered footer (화면 하단 고정)
-   ========================= */
-
+/* powered: 화면 하단 고정 */
 .powered {
   position: fixed;
-  bottom: 12px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
   font-size: clamp(12px, 2.5vw, 14px);
   font-weight: 400;
   color: #999;
-  z-index: 10;
+  z-index: 6;
 }
 
 .powered a {
   color: #999;
-  font-weight: 500;
 }
-
 .powered a:hover {
   color: #fff;
   background: #000;
 }
 
-/* =========================
-   4. 반응형
-   ========================= */
-
-@media (max-width: 600px) {
-  .bio {
-    padding-top: 64px;
-  }
+/* 실제 콘텐츠 영역: 첫 화면만큼 아래에서 시작 */
+main {
+  margin-top: 100vh;          /* 한 뷰포트 아래에서 본문 시작 */
 }
+
+/* 섹션 공통 */
+section {
+  min-height: 100vh;
+  padding: 40px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 글자 스타일 */
+h2 {
+  font-weight: 800;
+  font-size: clamp(18px, 5vw, 36px);
+  margin: 6px 0;
+}
+
+/* 더 아래 섹션 스타일 필요하면 추가 */
