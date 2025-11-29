@@ -1,1 +1,139 @@
+/* 기본 전체 설정 */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
 
+/* 헤더가 fixed라 body에 패딩 추가 */
+body {
+  padding-top: 56px; /* 헤더 높이 */
+}
+
+/* 섹션 공통 */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* 글자 스타일 */
+h1 {
+  font-weight: 900;
+  font-size: clamp(28px, 8vw, 80pt);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 8px 0;
+  word-break: keep-all;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: clamp(18px, 5vw, 36px);
+  margin: 6px 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+a:hover {
+  color: #fff;
+  background: #000;
+}
+
+/* ===== ▼ 고정 헤더 ===== */
+.global-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-bottom: 1px solid #000;
+  z-index: 999;
+}
+
+.global-header__title {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ===== ▼ HERO footer ===== */
+.hero {
+  position: relative;
+}
+
+.powered {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: clamp(12px, 2.5vw, 14px);
+  font-weight: 400;
+  color: #999;
+}
+
+.powered a {
+  color: #999;
+  font-weight: 500;
+}
+.powered a:hover {
+  color: #fff;
+  background: #000;
+}
+
+/* ===== ▼ COVID PRE/POST 버튼 영역 (화면 하단 고정) ===== */
+.covid-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  min-height: auto;
+}
+
+.covid-nav h1 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.covid-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  .covid-links {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
