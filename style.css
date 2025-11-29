@@ -151,6 +151,7 @@ section {
 .project-image--1 {
   /* 예시: url 안에 네 이미지 경로 넣어 */
   /* background-image: url("/images/about.jpg"); */
+  background-image: url("/images/bio.jpeg");
 }
 
 .project-image--2 {
