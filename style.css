@@ -79,37 +79,32 @@ a:hover {
 }
 
 /* ===== ▼ HERO footer ===== */
-/* HERO */
+/* HERO 영역 전체 (스크롤 공간 확보) */
 .hero {
-  height: 200vh; /* 스크롤 영역 확보 */
+  height: 200vh;               /* 아래로 스크롤할 공간 */
   position: relative;
   background: #fff;
 }
 
-.hero-inner {
-  height: 100vh; /* 첫 화면 */
+/* H1 — 처음엔 화면 정중앙 → 스크롤하면 상단에 sticky */
+.sticky-title {
+  position: sticky;
+  top: 30vh;                   /* 첫 화면 중앙에 보이도록 조절 */
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-}
-
-.sticky-title {
-  position: sticky;
-  top: 0;
-  padding-top: 20vh; /* 고정 시 살짝 여백 */
+  height: 100vh;               /* 처음엔 화면 한가운데 */
+  
   font-weight: 900;
   font-size: clamp(32px, 8vw, 80pt);
   line-height: 1.2;
-  text-align: center;
   margin: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-/* 스크롤 내려가면 효과 발동 */
-.sticky-title.is-pinned {
-  transform: translateY(-20vh);
-  opacity: 0.5;
+  text-align: center;
+  padding: 0 16px;
+  
+  /* 흐림/투명 효과 없음 — 유지 */
+  opacity: 1;
+  transform: none;
 }
 
 .powered {
