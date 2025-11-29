@@ -1,16 +1,16 @@
-// 스크롤 양에 따라 제목을 중앙 ↔ 상단으로 이동
-document.addEventListener("scroll", () => {
-  const title = document.getElementById("mainTitle");
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector(".hero-title");
   if (!title) return;
 
-  const scrollY = window.scrollY;
-  const threshold = window.innerHeight * 0.25; // 뷰포트 높이의 25% 지점
-
-  if (scrollY > threshold) {
-    // 어느 정도 내려가면 상단 고정 상태로
-    title.classList.add("pinned");
-  } else {
-    // 다시 위로 올리면 중앙으로 복귀
-    title.classList.remove("pinned");
+  function onScroll() {
+    const trigger = window.innerHeight * 0.4; // 화면 높이의 40% 지점
+    if (window.scrollY > trigger) {
+      title.classList.add("pinned");
+    } else {
+      title.classList.remove("pinned");
+    }
   }
+
+  window.addEventListener("scroll", onScroll);
+  onScroll(); // 최초 진입 시 상태 한 번 세팅
 });
