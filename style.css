@@ -118,7 +118,7 @@ section {
 /* 카드들을 가운데 세워둔 리스트 */
 .card-grid {
   width: 100%;
-  max-width: 960px;
+  max-width: 640px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
