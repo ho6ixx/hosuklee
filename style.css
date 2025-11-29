@@ -1,47 +1,21 @@
-/* 기본 전체 설정 */
-html, body {
+/* 기본 설정 */
+html,
+body {
   margin: 0;
   padding: 0;
   background: #fff;
   font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
-    Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 헤더가 fixed라 body에 패딩 추가 */
-/* 더 이상 헤더 안 쓰니까 패딩 0으로 */
-body {
-  padding-top: 0;
-}
-
-/* 섹션 공통 */
-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-/* 글자 스타일 */
-h1 {
-  font-weight: 900;
-  font-size: clamp(28px, 8vw, 80pt);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin: 8px 0;
-  word-break: keep-all;
-}
-
+/* 공통 텍스트 스타일 */
+h1,
 h2 {
-  font-weight: 800;
-  font-size: clamp(18px, 5vw, 36px);
-  margin: 6px 0;
+  margin: 0;
 }
 
 a {
@@ -56,60 +30,70 @@ a:hover {
   background: #000;
 }
 
-/* ===== ▼ 고정 헤더 ===== */
-.global-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-bottom: 1px solid #000;
-  z-index: 999;
-}
+/* =========================
+   1. HERO (스크롤 연출)
+   ========================= */
 
-.global-header__title {
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-/* ===== ▼ HERO 영역 ===== */
+/* hero 전체 높이를 2뷰포트로 줘서 스크롤 여유 확보 */
 .hero {
-  min-height: auto;
-  height: 200vh;                 /* 스크롤 여유를 위해 2뷰포트 정도 */
-  padding: 0;
-  box-sizing: border-box;
+  height: 200vh;
+  background: #fff;
 }
 
-/* 첫 진입 시 화면 한가운데, 이후 스크롤 시 상단에 고정되는 래퍼 */
-.hero-title-wrap {
+/* sticky-hero: 스크롤 시 상단에 고정되는 래퍼 */
+.sticky-hero {
   position: sticky;
   top: 0;
-  min-height: 100vh;             /* 한 화면 꽉 채움 */
+  height: 100vh; /* 항상 한 화면 채우기 */
   display: flex;
-  justify-content: center;       /* 가로 중앙 */
-  align-items: center;           /* 세로 중앙 (스크롤 전) */
+  justify-content: center; /* 처음엔 세로 중앙 */
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  background: #fff;
 }
 
-/* h1 자체는 기본 h1 스타일 그대로 사용해도 되지만,
-   나중에 효과 줄 수 있게 클래스로 한 번 더 감싸둠 */
+/* 중앙에 표시되는 h1 */
 .hero-title {
-  margin: 0;
+  font-weight: 900;
+  font-size: clamp(28px, 8vw, 80pt);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  text-align: center;
 }
 
-/* 스크롤 후: 상단에 고정된 느낌으로 위쪽으로 붙이기 */
-body.scrolled .hero-title-wrap {
-  align-items: flex-start;       /* 위로 붙이기 */
-  padding-top: 40px;             /* 상단에서 약간 내려오게 */
+/* 스크롤 내려갔을 때 상단으로 붙이는 상태 (JS에서 클래스 토글) */
+.sticky-hero.pinned {
+  justify-content: flex-start; /* 위에서부터 정렬 */
+  align-items: flex-start;
+  padding-top: 32px;           /* 상단 여백 */
 }
 
-/* ===== ▼ powered: 화면 하단 고정 ===== */
+/* pinned 상태에서도 h1 크기는 그대로 유지 (변경 없음) */
+
+/* =========================
+   2. BIO 섹션
+   ========================= */
+
+.bio {
+  padding: 80px 16px 160px;
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.bio h2 {
+  font-weight: 800;
+  font-size: clamp(18px, 5vw, 36px);
+  margin: 6px 0;
+}
+
+/* =========================
+   3. powered footer (화면 하단 고정)
+   ========================= */
+
 .powered {
   position: fixed;
   bottom: 12px;
@@ -119,48 +103,25 @@ body.scrolled .hero-title-wrap {
   font-size: clamp(12px, 2.5vw, 14px);
   font-weight: 400;
   color: #999;
+  z-index: 10;
 }
 
 .powered a {
   color: #999;
   font-weight: 500;
 }
+
 .powered a:hover {
   color: #fff;
   background: #000;
 }
 
-/* ===== ▼ COVID PRE/POST 버튼 영역 (화면 하단 고정) ===== */
-.covid-nav {
-  position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 0 16px;
-  min-height: auto;
-}
+/* =========================
+   4. 반응형
+   ========================= */
 
-.covid-nav h1 {
-  margin: 0 0 4px;
-  font-size: 14px;
-}
-
-.covid-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-
-/* 모바일 */
 @media (max-width: 600px) {
-  .covid-links {
-    flex-direction: column;
-    gap: 14px;
+  .bio {
+    padding-top: 64px;
   }
 }
