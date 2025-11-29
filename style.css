@@ -203,3 +203,10 @@ section {
     font-size: 12px;
   }
 }
+
+/* 카드 모서리 완전 직각으로 */
+.project-card,
+.project-image,
+.project-meta {
+  border-radius: 0 !important;
+}
