@@ -1,20 +1,16 @@
-// 스크롤 위치에 따라 hero 제목이 중앙 → 상단으로 붙도록 클래스 토글
-(function () {
-  const stickyHero = document.querySelector(".sticky-hero");
-  if (!stickyHero) return;
+// 스크롤 양에 따라 제목을 중앙 ↔ 상단으로 이동
+document.addEventListener("scroll", () => {
+  const title = document.getElementById("mainTitle");
+  if (!title) return;
 
-  function onScroll() {
-    const scrollY = window.scrollY || window.pageYOffset;
-    const trigger = window.innerHeight * 0.3; // 화면 높이의 30% 지점
+  const scrollY = window.scrollY;
+  const threshold = window.innerHeight * 0.25; // 뷰포트 높이의 25% 지점
 
-    if (scrollY > trigger) {
-      stickyHero.classList.add("pinned");
-    } else {
-      stickyHero.classList.remove("pinned");
-    }
+  if (scrollY > threshold) {
+    // 어느 정도 내려가면 상단 고정 상태로
+    title.classList.add("pinned");
+  } else {
+    // 다시 위로 올리면 중앙으로 복귀
+    title.classList.remove("pinned");
   }
-
-  // 초기 상태 + 스크롤 이벤트
-  window.addEventListener("scroll", onScroll);
-  onScroll();
-})();
+});
