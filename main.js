@@ -1,10 +1,20 @@
-// 스크롤 양에 따라 body에 클래스를 붙여서
-// hero-title-wrap의 정렬 상태를 바꿔준다.
+// 스크롤 위치에 따라 hero 제목이 중앙 → 상단으로 붙도록 클래스 토글
+(function () {
+  const stickyHero = document.querySelector(".sticky-hero");
+  if (!stickyHero) return;
 
-function updateScrollState() {
-  const scrolled = window.scrollY > 10; // 10px 이상 내려가면 "스크롤된 상태"로 판단
-  document.body.classList.toggle("scrolled", scrolled);
-}
+  function onScroll() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const trigger = window.innerHeight * 0.3; // 화면 높이의 30% 지점
 
-window.addEventListener("scroll", updateScrollState);
-window.addEventListener("load", updateScrollState);
+    if (scrollY > trigger) {
+      stickyHero.classList.add("pinned");
+    } else {
+      stickyHero.classList.remove("pinned");
+    }
+  }
+
+  // 초기 상태 + 스크롤 이벤트
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+})();
