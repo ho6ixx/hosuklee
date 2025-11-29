@@ -26,6 +26,34 @@ a:hover {
 }
 
 /* 제목 스타일 (고정 + 위치 애니메이션) */
+/* 기본 전체 설정 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 링크 공통 */
+a {
+  color: #000;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+a:hover {
+  color: #fff;
+  background: #000;
+}
+
+/* 제목 스타일 (고정 + 위치 애니메이션) */
 .main-title {
   position: fixed;
   left: 50%;
@@ -43,6 +71,60 @@ a:hover {
     top 0.35s ease,
     transform 0.35s ease;
 }
+
+/* 스크롤 후 상단 고정 상태 */
+.main-title.pinned {
+  top: 32px;                          /* 상단에서 약간 떨어진 위치 */
+  transform: translate(-50%, 0);      /* Y축 이동만 0으로 */
+}
+
+/* powered: 화면 하단 고정 */
+.powered {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: clamp(12px, 2.5vw, 14px);
+  font-weight: 400;
+  color: #999;
+  z-index: 6;
+}
+
+.powered a {
+  color: #999;
+}
+.powered a:hover {
+  color: #fff;
+  background: #000;
+}
+
+/* 실제 콘텐츠 영역: 첫 화면만큼 아래에서 시작 */
+main {
+  margin-top: 100vh;          /* 한 뷰포트 아래에서 본문 시작 */
+}
+
+/* 섹션 공통 */
+section {
+  min-height: 100vh;
+  padding: 40px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 글자 스타일 */
+h2 {
+  font-weight: 800;
+  font-size: clamp(18px, 5vw, 36px);
+  margin: 6px 0;
+}
+
+/* 더 아래 섹션 스타일 필요하면 추가 */
+
 
 /* 스크롤 후 상단 고정 상태 */
 .main-title.pinned {
