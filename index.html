@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <!-- 중앙 → 상단 고정될 제목 -->
+    <!-- 중앙 → 상단 고정될 제목 (배경처럼 고정) -->
     <h1 class="hero-title">나 인간 이호석 일 한번 저질러보리라</h1>
 
     <!-- 화면 하단 고정 powered -->
@@ -27,26 +27,49 @@
       </a>
     </p>
 
-    <!-- 실제 콘텐츠 -->
+    <!-- 실제 콘텐츠: 카드들이 스크롤되며 타이틀 위를 지나감 -->
     <main>
       <section class="bio">
-        <h2>이호석</h2>
-        <h2>hosuk lee</h2>
-        <h2>🩵ホソギ🩵</h2>
-        <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
-        <h2>
-          <a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">
-            @ho6ixx
+        <div class="card-grid">
+
+          <!-- 카드 1 -->
+          <a class="project-card" href="/about/">
+            <div class="project-image project-image--1"></div>
+            <div class="project-meta">
+              <span class="project-title">About hosuk lee</span>
+              <span class="project-link">ENTER</span>
+            </div>
           </a>
-        </h2>
-        <br />
-        <h2>사단법인 턴스타일 코리아</h2>
-        <h2>
-          <a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">
-            @turnstile.kr
+
+          <!-- 카드 2 -->
+          <a class="project-card" href="/works/">
+            <div class="project-image project-image--2"></div>
+            <div class="project-meta">
+              <span class="project-title">Works & projects</span>
+              <span class="project-link">ENTER</span>
+            </div>
           </a>
-        </h2>
-        <h2>based in seoul, south korea</h2>
+
+          <!-- 카드 3 -->
+          <a class="project-card" href="/dingo/">
+            <div class="project-image project-image--3"></div>
+            <div class="project-meta">
+              <span class="project-title">Dingo & collaborations</span>
+              <span class="project-link">ENTER</span>
+            </div>
+          </a>
+
+          <!-- 카드 더 만들고 싶으면 아래처럼 복붙해서 링크만 바꾸면 됨
+          <a class="project-card" href="/something/">
+            <div class="project-image project-image--4"></div>
+            <div class="project-meta">
+              <span class="project-title">Something</span>
+              <span class="project-link">ENTER</span>
+            </div>
+          </a>
+          -->
+
+        </div>
       </section>
     </main>
 
