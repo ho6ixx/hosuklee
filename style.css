@@ -199,3 +199,118 @@ section {
 .project-meta {
   border-radius: 0 !important;
 }
+
+/* ===================================== */
+/*  프로젝트 상세 페이지 전용 레이아웃   */
+/*  (body class="project-page" 에만 적용) */
+/* ===================================== */
+
+body.project-page {
+  background: #fff;
+}
+
+/* 인덱스용 margin-top: 100vh 제거 */
+body.project-page main {
+  margin-top: 0;
+}
+
+/* 인덱스용 section min-height: 100vh 제거 + 패딩 줄이기 */
+body.project-page section {
+  min-height: auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  display: block;   /* 인덱스의 flex 정렬 해제 */
+}
+
+/* 전체 레이아웃 (이미지 + 텍스트) */
+body.project-page .project-layout {
+  max-width: 960px;
+  margin: 40px auto 60px;   /* 위/아래 여백 적당히 */
+}
+
+/* 미디어 영역 */
+body.project-page .project-media {
+  margin-bottom: 32px;
+}
+
+body.project-page .project-media-inner {
+  width: 100%;
+}
+
+/* 유튜브 / 이미지 공통: 폭 100%, 높이는 비율 유지 */
+body.project-page .project-media-inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+body.project-page .project-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;  /* 16:9 비율 */
+}
+
+body.project-page .project-video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 텍스트 영역 */
+body.project-page .project-details {
+  margin-top: 16px;
+}
+
+body.project-page .project-name {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+body.project-page .project-tagline {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 메타 정보 표 형태 */
+body.project-page .project-info {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 16px 0;
+  margin-bottom: 24px;
+}
+
+body.project-page .project-info-row {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body.project-page .project-info-label {
+  width: 80px;
+  text-transform: lowercase;
+  color: #666;
+}
+
+body.project-page .project-info-value {
+  flex: 1;
+}
+
+/* 설명문이 있다면 */
+body.project-page .project-description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #222;
+}
+
+/* 모바일에서 여백 살짝 조정 */
+@media (max-width: 600px) {
+  body.project-page .project-layout {
+    margin: 24px auto 40px;
+    padding: 0 12px;
+  }
+}
