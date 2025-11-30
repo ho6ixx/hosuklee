@@ -1,95 +1,62 @@
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>[MV]こっちのけんとーはいよろこんで</title>
+<body class="project-page">
+  <main class="project-layout">
 
-    <!-- Pretendard -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
+    <!-- 이미지 + 유튜브 둘 다 사용 가능 -->
 
-    <!-- 메인 CSS (루트의 style.css 재사용) -->
-    <link rel="stylesheet" href="/style.css" />
-  </head>
+    <!-- 이미지 섹션 -->
+    <section class="project-media">
+      <div class="project-media-inner">
+        <img src="/images/Kocchi_MV_still.jpg" alt="sorry🩵" />
+      </div>
+    </section>
 
-  <body class="project-page">
-    <main class="project-layout">
-
-      <!-- 미디어 영역: 유튜브 버전만 사용 -->
-      <section class="project-media">
-        <div class="project-media-inner">
-          <div class="project-video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/cuCqGy3DmEk"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
+    <!-- 유튜브 섹션 -->
+    <section class="project-media">
+      <div class="project-media-inner">
+        <div class="project-video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/cuCqGy3DmEk"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 텍스트 / 메타 영역 -->
-      <section class="project-details">
-        <h1 class="project-name">
-          こっちのけんとーはいよろこんで SPECIAL MUSIC VIDEO IN SEOUL
-        </h1>
-        <p class="project-tagline">welcome to seoul</p>
+    <!-- 텍스트 영역 -->
+    <section class="project-details">
+      <h1 class="project-name">
+        こっちのけんとーはいよろこんで SPECIAL MUSIC VIDEO IN SEOUL
+      </h1>
+      <p class="project-tagline">welcome to seoul</p>
 
-        <div class="project-info">
-          <div class="project-info-row">
-            <span class="project-info-label">role</span>
-            <span class="project-info-value">producer</span>
-          </div>
-
-          <div class="project-info-row">
-            <span class="project-info-label">year</span>
-            <span class="project-info-value">2024</span>
-          </div>
-
-          <div class="project-info-row">
-            <span class="project-info-label">client</span>
-            <span class="project-info-value">blowout Inc. / こっちのけんと</span>
-            <span class="project-info-value">
-              <a
-                href="https://www.instagram.com/suppokopeppoko/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @suppokopeppoko
-              </a>
-            </span>
-          </div>
+      <div class="project-info">
+        <div class="project-info-row">
+          <span class="project-info-label">role</span>
+          <span class="project-info-value">producer</span>
         </div>
-
-        <!-- 필요하면 나중에 설명·링크 영역 해제해서 사용 -->
-        <!--
-        <div class="project-description">
-          <p>
-            여기에는 프로젝트에 대한 설명을 자유롭게 적으면 돼.
-            2~4문단 정도 써도 되고, 중간에 줄바꿈으로 구분해도 괜찮음.
-          </p>
-          <p>
-            예시) 이 프로젝트는 OOO 컨셉으로 진행된 콘텐츠로, 공연과 다큐멘터리 포맷을
-            섞은 하이브리드 쇼케이스이다. 전체 기획과 아티스트/브랜드 사이의 조율,
-            촬영 감리 및 포스트 프로덕션 전 과정을 담당했다.
-          </p>
+        <div class="project-info-row">
+          <span class="project-info-label">year</span>
+          <span class="project-info-value">2024</span>
         </div>
-
-        <div class="project-links">
-          <a href="https://youtube.com/..." target="_blank" rel="noopener noreferrer">
-            Watch on YouTube
-          </a>
-          <a href="https://instagram.com/..." target="_blank" rel="noopener noreferrer">
-            Instagram post
-          </a>
+        <div class="project-info-row">
+          <span class="project-info-label">client</span>
+          <span class="project-info-value">
+            blowout Inc. / こっちのけんと / 
+            <a href="https://www.instagram.com/suppokopeppoko/" target="_blank" rel="noopener noreferrer">
+              @suppokopeppoko
+            </a>
+          </span>
         </div>
-        -->
-      </section>
-    </main>
-  </body>
-</html>
+      </div>
+
+      <div class="project-description">
+        <p>여기에 설명 쓰면 전부 h1급 텍스트 사이즈로 표시됨.</p>
+        <p>필요하면 여러 문단 추가.</p>
+      </div>
+    </section>
+
+  </main>
+</body>
