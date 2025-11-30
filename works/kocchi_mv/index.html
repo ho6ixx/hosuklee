@@ -1,18 +1,32 @@
-<body class="project-page">
-  <main class="project-layout">
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>[MV] こっちのけんとーはいよろこんで</title>
 
-    <!-- 이미지 + 유튜브 둘 다 사용 가능 -->
+    <!-- Pretendard -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
 
-    <!-- 이미지 섹션 -->
-    <section class="project-media">
-      <div class="project-media-inner">
-        <img src="/images/Kocchi_MV_still.jpg" alt="sorry🩵" />
-      </div>
-    </section>
+    <!-- 루트 style.css 를 상대 경로로 -->
+    <link rel="stylesheet" href="../style.css" />
+  </head>
 
-    <!-- 유튜브 섹션 -->
-    <section class="project-media">
-      <div class="project-media-inner">
+  <body class="project-page">
+    <main class="project-layout">
+
+      <!-- (원하면 이미지 섹션) -->
+      <section class="project-media">
+        <div class="project-media-inner">
+          <img src="/images/Kocchi_MV.jpg" alt="こっちのけんと MV still" />
+        </div>
+      </section>
+
+      <!-- 유튜브 섹션 -->
+      <section class="project-media">
         <div class="project-video-wrapper">
           <iframe
             src="https://www.youtube.com/embed/cuCqGy3DmEk"
@@ -22,44 +36,18 @@
             allowfullscreen
           ></iframe>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 텍스트 영역 -->
-    <section class="project-details">
-      <h1 class="project-name">
-        こっちのけんとーはいよろこんで SPECIAL MUSIC VIDEO IN SEOUL
-      </h1>
-      <p class="project-tagline">welcome to seoul</p>
+      <!-- 텍스트 영역 -->
+      <section class="project-details">
+        <h1>こっちのけんとーはいよろこんで SPECIAL MUSIC VIDEO IN SEOUL</h1>
+        <h1>welcome to seoul</h1>
+        <h1>role&nbsp; producer</h1>
+        <h1>year&nbsp; 2024</h1>
+        <h1>client&nbsp; blowout Inc. / こっちのけんと / @suppokopeppoko</h1>
+        <h1>여기에 설명 쓰면 전부 h1급 텍스트 사이즈로 표시됨.</h1>
+      </section>
 
-      <div class="project-info">
-        <div class="project-info-row">
-          <span class="project-info-label">role</span>
-          <span class="project-info-value">producer</span>
-        </div>
-        <div class="project-info-row">
-          <span class="project-info-label">year</span>
-          <span class="project-info-value">2024</span>
-        </div>
-        <div class="project-info-row">
-          <span class="project-info-label">client</span>
-          <span class="project-info-value">
-            blowout Inc. / こっちのけんと / 
-            <a href="https://www.instagram.com/suppokopeppoko/" target="_blank" rel="noopener noreferrer">
-              @suppokopeppoko
-            </a>
-          </span>
-        </div>
-      </div>
-
-      <!--
-      <div class="project-description">
-        <p>여기에 설명 쓰면 전부 h1급 텍스트 사이즈로 표시됨.</p>
-        <p>필요하면 여러 문단 추가.</p>
-      </div>
-      -->
-      
-    </section>
-
-  </main>
-</body>
+    </main>
+  </body>
+</html>
