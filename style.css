@@ -52,7 +52,7 @@ a:hover {
     transform 0.35s ease;
 }
 
-/* 스크롤 후 상단으로 이동 */
+/* 스크롤 후 상단 고정 상태 */
 .hero-title.pinned {
   top: 32px;
   transform: translate(-50%, 0);
@@ -82,7 +82,6 @@ a:hover {
   color: #999;
   z-index: 6;
 }
-
 .powered a {
   color: #999;
 }
@@ -112,12 +111,11 @@ section {
   text-align: left;
 }
 
-/* 카드 그리드 */
-/* 💡 데스크탑: 640px 제한 / 모바일: 자동으로 줄어듦 */
+/* 카드 리스트 */
 .card-grid {
   width: 100%;
-  max-width: 640px;   /* 이게 데스크탑 기준 최대 너비 */
-  padding: 0 16px;    /* 모바일에서 양쪽 여백 확보 */
+  max-width: 640px;
+  padding: 0 16px;
   margin: 0 auto;
 
   display: flex;
@@ -130,47 +128,34 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-
-  border: 1px solid #000;
   background: #fff;
-  overflow: hidden;
+  border: 1px solid #000;
   padding: 0;
-  z-index: 2;
+  overflow: hidden;
 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  z-index: 2;
 
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-/* 호버 시 띄우기 */
+/* 호버 효과 */
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
 }
 
-/* 이미지 영역 */
-.project-image {
+/* ===== 이미지 영역 (원본 비율 유지) ===== */
+.project-image img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  background-size: cover;
-  background-position: center;
-  background-color: #eee;
+  height: auto;
+  display: block;
+  object-fit: cover;   /* 필요하면 contain으로 변경 가능 */
 }
 
-/* 개별 이미지 연결 */
-.project-image--1 {
-  background-image: url("/images/bio.jpeg");
-}
-.project-image--2 {
-  background-image: url("/images/Kocchi_MV.jpg");
-}
-.project-image--3 {
-  background-image: url("/images/Kocchi_TEXTED.jpg");
-}
-
-/* 카드 메타 */
+/* ===== 카드 텍스트 ===== */
 .project-meta {
   display: flex;
   justify-content: space-between;
@@ -178,14 +163,13 @@ section {
 
   padding: 12px 16px;
   border-top: 1px solid #000;
+
   font-size: 13px;
   letter-spacing: 0.08em;
 
-  /* 🔥 대문자 강제 없음 */
-  text-transform: none;
+  text-transform: none;   /* 🔥 대문자 강제 없음 */
 }
 
-/* 텍스트 */
 .project-title {
   font-weight: 600;
 }
@@ -199,8 +183,8 @@ section {
     padding: 32px 12px;
   }
   .card-grid {
+    padding: 0 12px;
     gap: 32px;
-    padding: 0 12px;     /* 모바일에서 양쪽 여백 더 줄임 */
   }
   .project-meta {
     padding: 10px 12px;
@@ -208,10 +192,10 @@ section {
   }
 }
 
-/* 카드 모서리 완전 직각으로 */
+/* ===== 카드 모서리 직각 ===== */
 .project-card,
 .project-image,
+.project-image img,
 .project-meta {
   border-radius: 0 !important;
 }
-
