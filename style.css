@@ -205,60 +205,52 @@ section {
 }
 
 /* ===================================== */
-/*   프로젝트 상세 페이지 공통 스타일     */
-/*   (body class="project-page" 에 적용)  */
+/*  프로젝트 상세 페이지 전용 레이아웃   */
+/*  (body class="project-page")          */
 /* ===================================== */
 
 body.project-page {
   background: #fff;
 }
 
-/* 인덱스용 margin-top 제거 */
-body.project-page main {
-  margin-top: 0;
-}
-
-/* 인덱스용 section flex 레이아웃 해제 */
+/* 인덱스용 section flex / min-height를 프로젝트에선 풀어주기 */
 body.project-page section {
   min-height: auto;
-  padding: 0;
+  padding: 24px 16px;
   box-sizing: border-box;
   display: block;
 }
 
-/* 전체 레이아웃 컨테이너 */
+/* 전체 레이아웃: 최대 960px, 가운데 정렬 */
 body.project-page .project-layout {
-  max-width: 960px;          /* 3, 4번 요구사항: 최대 960px */
-  margin: 40px auto 80px;
-  padding: 0 16px;
+  max-width: 960px;
+  margin: 0 auto 80px;
 }
 
-/* ===== 미디어 블록 (이미지 + 유튜브 공통) ===== */
-
+/* ===== 미디어 영역 (이미지 & 유튜브 공통) ===== */
 body.project-page .project-media {
-  margin-bottom: 32px;
+  margin-top: 40px;
 }
 
-/* 카드와 동일한 외곽선 + 그림자 */
-body.project-page .project-media-inner,
-body.project-page .project-video-wrapper {
-  border: 1px solid #000;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  background: #fff;
+body.project-page .project-media-inner {
+  width: 100%;
+  border: 1px solid #000;              /* 카드와 동일한 외곽선 */
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  overflow: hidden;
 }
 
-/* 이미지: 원본 비율 유지 */
+/* 이미지 */
 body.project-page .project-media-inner img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* 유튜브: 16:9 비율, 가로 100% */
+/* 유튜브 비디오 래퍼 (16:9 비율, 반응형) */
 body.project-page .project-video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;   /* 16:9 */
+  padding-top: 56.25%;                 /* 16:9 */
 }
 
 body.project-page .project-video-wrapper iframe {
@@ -269,30 +261,40 @@ body.project-page .project-video-wrapper iframe {
   border: 0;
 }
 
-/* ===== 텍스트 영역 ===== */
-
+/* ===== 텍스트 영역: 전부 h1 느낌, 가운데 정렬 ===== */
 body.project-page .project-details {
-  margin-top: 32px;
-  text-align: center;        /* 가운데 정렬 */
+  margin-top: 40px;
 }
 
-/* 상세 영역 안의 모든 텍스트를 h1급 사이즈로 통일 */
-body.project-page .project-details * {
-  margin: 0 0 8px;
-  font-size: clamp(20px, 3vw, 32px);  /* h1 수준 크기 */
-  line-height: 1.4;
+body.project-page .project-text-block {
+  text-align: center;
+}
+
+/* 안의 모든 텍스트 요소를 크게 */
+body.project-page .project-text-block p,
+body.project-page .project-text-block a {
+  display: block;
+  font-size: clamp(18px, 2.4vw, 28px);   /* h1-ish 사이즈 */
   font-weight: 700;
+  margin: 8px 0;
+  text-decoration: none;
 }
 
-/* 필요하면 마지막 문단 여백 조금 더 */
-body.project-page .project-details *:last-child {
-  margin-bottom: 0;
+body.project-page .project-text-block a {
+  color: #000;
 }
 
-/* 모바일에서 좌우 여백 살짝 보정 */
+body.project-page .project-text-block a:hover {
+  color: #fff;
+  background: #000;
+}
+
+/* 모바일 여백 조정 */
 @media (max-width: 600px) {
   body.project-page .project-layout {
-    margin: 24px auto 40px;
-    padding: 0 12px;
+    padding: 0 12px 40px;
+  }
+  body.project-page .project-media {
+    margin-top: 28px;
   }
 }
