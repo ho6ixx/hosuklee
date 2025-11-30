@@ -25,6 +25,10 @@ a:hover {
   background: #000;
 }
 
+/* ============================= */
+/*  인덱스: 제목 + 카드 리스트   */
+/* ============================= */
+
 /* ===== 제목: 중앙 → 스크롤 후 상단 고정 ===== */
 .hero-title {
   position: fixed;
@@ -167,7 +171,7 @@ section {
   font-size: 13px;
   letter-spacing: 0.08em;
 
-  text-transform: none;   /* 🔥 대문자 강제 없음 */
+  text-transform: none;   /* 대문자 강제 없음 */
 }
 
 .project-title {
@@ -177,7 +181,7 @@ section {
   font-weight: 500;
 }
 
-/* ===== 모바일 최적화 ===== */
+/* ===== 모바일 최적화 (인덱스) ===== */
 @media (max-width: 600px) {
   section {
     padding: 32px 12px;
@@ -192,7 +196,7 @@ section {
   }
 }
 
-/* ===== 카드 모서리 직각 ===== */
+/* 카드 모서리 완전 직각 */
 .project-card,
 .project-image,
 .project-image img,
@@ -209,45 +213,51 @@ body.project-page {
   background: #fff;
 }
 
-/* 인덱스용 margin-top: 100vh 제거 */
+/* 인덱스에서 쓰던 margin-top: 100vh 제거 */
 body.project-page main {
   margin-top: 0;
 }
 
-/* 인덱스용 section min-height: 100vh 제거 + 패딩 줄이기 */
+/* 인덱스용 section 스타일 초기화 */
 body.project-page section {
   min-height: auto;
   padding: 24px 16px;
   box-sizing: border-box;
-  display: block;   /* 인덱스의 flex 정렬 해제 */
+  display: block;
 }
 
-/* 전체 레이아웃 (이미지 + 텍스트) */
+/* 전체 레이아웃 컨테이너 */
 body.project-page .project-layout {
   max-width: 960px;
-  margin: 40px auto 60px;   /* 위/아래 여백 적당히 */
+  margin: 40px auto 60px;
 }
 
-/* 미디어 영역 */
+/* ===== 미디어 영역 (이미지 + 유튜브 둘 다 가능) ===== */
 body.project-page .project-media {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
+/* 이미지/영상 공통 컨테이너에 카드처럼 보더 적용 */
 body.project-page .project-media-inner {
   width: 100%;
+  border: 1px solid #000;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  overflow: hidden;
 }
 
-/* 유튜브 / 이미지 공통: 폭 100%, 높이는 비율 유지 */
+/* 이미지 버전 */
 body.project-page .project-media-inner img {
   width: 100%;
   height: auto;
   display: block;
 }
 
+/* 유튜브 버전 (16:9 비율 유지) */
 body.project-page .project-video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;  /* 16:9 비율 */
+  padding-top: 56.25%;  /* 16:9 */
 }
 
 body.project-page .project-video-wrapper iframe {
@@ -258,24 +268,34 @@ body.project-page .project-video-wrapper iframe {
   border: 0;
 }
 
-/* 텍스트 영역 */
+/* ===== 텍스트 / 메타 영역 ===== */
 body.project-page .project-details {
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
-body.project-page .project-name {
+/* 모든 설명 텍스트를 h1 느낌으로 통일 */
+body.project-page .project-details h1,
+body.project-page .project-details h2,
+body.project-page .project-details p,
+body.project-page .project-details .project-info,
+body.project-page .project-details .project-description {
   font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.3;
+}
+
+/* 프로젝트 이름 */
+body.project-page .project-name {
   font-weight: 800;
   margin: 0 0 8px;
 }
 
+/* 태그라인(부제목) */
 body.project-page .project-tagline {
   margin: 0 0 24px;
-  font-size: 14px;
   color: #666;
 }
 
-/* 메타 정보 표 형태 */
+/* 메타 정보 블록 */
 body.project-page .project-info {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
@@ -283,34 +303,37 @@ body.project-page .project-info {
   margin-bottom: 24px;
 }
 
+/* 메타 정보 한 줄 */
 body.project-page .project-info-row {
   display: flex;
   gap: 12px;
-  font-size: 13px;
-  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
+/* 라벨/값 구분 */
 body.project-page .project-info-label {
   width: 80px;
   text-transform: lowercase;
   color: #666;
 }
 
+/* 값은 남은 영역 채우기 */
 body.project-page .project-info-value {
   flex: 1;
 }
 
-/* 설명문이 있다면 */
+/* 설명문 */
 body.project-page .project-description {
-  font-size: 14px;
-  line-height: 1.7;
   color: #222;
 }
 
-/* 모바일에서 여백 살짝 조정 */
+/* 프로젝트 상세 페이지 - 모바일 여백 조정 */
 @media (max-width: 600px) {
   body.project-page .project-layout {
     margin: 24px auto 40px;
     padding: 0 12px;
+  }
+  body.project-page .project-details {
+    margin-top: 20px;
   }
 }
