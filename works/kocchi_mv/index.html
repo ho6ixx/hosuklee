@@ -11,43 +11,60 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
 
-    <!-- 루트 style.css 를 상대 경로로 -->
+    <!-- 루트의 공통 CSS -->
     <link rel="stylesheet" href="/style.css" />
   </head>
 
+  <!-- 프로젝트 상세 전용 페이지 -->
   <body class="project-page">
-    <main class="project-layout">
+    <!-- 메인 페이지와 같은 방식: 중앙 → 상단 고정 제목 -->
+    <h1 class="hero-title">
+      こっちのけんとーはいよろこんで SPECIAL MUSIC VIDEO IN SEOUL
+    </h1>
 
-      <!-- (원하면 이미지 섹션) -->
+    <!-- 실제 콘텐츠: 제목 아래에서 시작 (main은 항상 margin-top:100vh) -->
+    <main class="project-layout">
+      <!-- (1) 유튜브 컨테이너 -->
+      <section class="project-media">
+        <div class="project-media-inner">
+          <div class="project-video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/cuCqGy3DmEk"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- (2) 이미지도 함께 쓰고 싶으면 이 블록 추가/유지 -->
       <section class="project-media">
         <div class="project-media-inner">
           <img src="/images/Kocchi_MV.jpg" alt="こっちのけんと MV still" />
         </div>
       </section>
 
-      <!-- 유튜브 섹션 -->
-      <section class="project-media">
-        <div class="project-video-wrapper">
-          <iframe
-            src="https://www.youtube.com/embed/cuCqGy3DmEk"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+      <!-- (3) 프로젝트 텍스트 영역 -->
+      <section class="project-details">
+        <div class="project-text-block">
+          <p>welcome to seoul</p>
+          <p>role&nbsp;&nbsp;producer</p>
+          <p>year&nbsp;&nbsp;2024</p>
+          <p>
+            client&nbsp;&nbsp;blowout Inc. / こっちのけんと /
+            <a href="https://www.instagram.com/suppokopeppoko/" target="_blank" rel="noopener noreferrer">
+              @suppokopeppoko
+            </a>
+          </p>
+          <!-- 필요하면 설명 더 추가 -->
+          <!-- <p>여기에 설명 쭉 쓰면 됨. 모두 h1급 사이즈로 나옴.</p> -->
         </div>
       </section>
-
-      <!-- 텍스트 영역 -->
-      <section class="project-details">
-        <h1>こっちのけんとーはいよろこんで SPECIAL MUSIC VIDEO IN SEOUL</h1>
-        <h1>welcome to seoul</h1>
-        <h1>role&nbsp; producer</h1>
-        <h1>year&nbsp; 2024</h1>
-        <h1>client&nbsp; blowout Inc. / こっちのけんと / @suppokopeppoko</h1>
-        <!-- <h1>여기에 설명 쓰면 전부 h1급 텍스트 사이즈로 표시됨.</h1> -->
-      </section>
-
     </main>
+
+    <!-- 스크롤에 따라 hero-title 위치 바꾸는 스크립트 -->
+    <script src="/main.js"></script>
   </body>
 </html>
