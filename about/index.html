@@ -20,6 +20,16 @@
           "Malgun Gothic", sans-serif;
         background: #fff;
         text-align: center;
+
+        /* 🔥 화면 정중앙 배치용 */
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;   /* 세로 중앙 */
+        align-items: center;       /* 가로 중앙 */
+      }
+
+      .about-wrap {
+        /* 내용 전체를 하나의 블록으로 묶어서 가운데에 */
       }
 
       h2 {
@@ -39,42 +49,34 @@
         color: #fff;
         background: #000;
       }
-
-      /* 페이지 상단으로 돌아가기 링크(optional) */
-      .back-home {
-        display: inline-block;
-        margin-top: 32px;
-        font-size: 14px;
-        opacity: 0.6;
-      }
     </style>
   </head>
 
   <body>
-    <h2>이호석</h2>
-    <h2>hosuk lee</h2>
-    <h2>🩵ホソギ🩵</h2>
-    <h2>李浩碩</h2>
-    <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
+    <div class="about-wrap">
+      <h2>이호석</h2>
+      <h2>hosuk lee</h2>
+      <h2>🩵ホソギ🩵</h2>
+      <h2>李浩碩</h2>
+      <h2>1993년 4월 16일 오전 10시 53분 출생</h2>
 
-    <h2>
-      <a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">
-        @ho6ixx
-      </a>
-    </h2>
+      <h2>
+        <a href="https://instagram.com/ho6ixx" target="_blank" rel="noopener noreferrer">
+          @ho6ixx
+        </a>
+      </h2>
 
-    <br />
+      <br />
 
-    <h2>사단법인 턴스타일 코리아</h2>
+      <h2>사단법인 턴스타일 코리아</h2>
 
-    <h2>
-      <a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">
-        @turnstile.kr
-      </a>
-    </h2>
+      <h2>
+        <a href="https://instagram.com/turnstile.kr" target="_blank" rel="noopener noreferrer">
+          @turnstile.kr
+        </a>
+      </h2>
 
-    <h2>based in seoul, south korea</h2>
-
-    <a class="back-home" href="/">← 홈으로 돌아가기</a>
+      <h2>based in seoul, south korea</h2>
+    </div>
   </body>
 </html>
