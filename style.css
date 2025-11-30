@@ -163,8 +163,12 @@ section {
 .project-image--1 {
   background-image: url("/images/bio.jpeg");
 }
-.project-image--2 {}
-.project-image--3 {}
+.project-image--2 {
+  background-image: url("/images/Kocchi_TEXTED.jpg");
+}
+.project-image--3 {
+  background-image: url("/images/Kocchi_MV.jpg");
+}
 
 /* 카드 메타 */
 .project-meta {
