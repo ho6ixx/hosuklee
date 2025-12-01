@@ -39,14 +39,17 @@ a:hover {
   text-align: center;
   font-weight: 900;
 
-  font-size: clamp(40px, 8vw, 110px);
+  font-size: clamp(32px, 8vw, 110px);
   line-height: 1.1;
   letter-spacing: -0.01em;
-  word-break: keep-all;
 
   width: 100%;
   max-width: 26ch;
   padding: 0 16px;
+
+  /* 🔥 여기 두 줄이 핵심 */
+  word-break: break-word;         /* 긴 단어도 강제로 줄바꿈 허용 */
+  overflow-wrap: anywhere;        /* 필요하면 아무 데나 끊어서라도 줄바꿈 */
 
   z-index: 1;
   pointer-events: none;
@@ -55,7 +58,6 @@ a:hover {
     top 0.35s ease,
     transform 0.35s ease;
 }
-
 /* 스크롤 후 상단 고정 상태 */
 .hero-title.pinned {
   top: 32px;
