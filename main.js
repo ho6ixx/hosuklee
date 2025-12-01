@@ -1,9 +1,12 @@
+/* ================================
+   hero title scroll 고정 기능
+================================ */
 document.addEventListener("DOMContentLoaded", () => {
   const title = document.querySelector(".hero-title");
   if (!title) return;
 
   function onScroll() {
-    const trigger = window.innerHeight * 0.4; // 화면 높이의 40% 지점
+    const trigger = window.innerHeight * 0.4;
     if (window.scrollY > trigger) {
       title.classList.add("pinned");
     } else {
@@ -12,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", onScroll);
-  onScroll(); // 최초 진입 시 상태 한 번 세팅
+  onScroll();
 });
 
 /* ================================
-   카드 랜덤 섞기 기능
+   카드 랜덤 섞기 (첫 카드는 고정)
 ================================ */
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".card-grid");
@@ -24,12 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cards = Array.from(grid.children);
 
+  // 첫 번째 카드(bio) 고정
+  const firstCard = cards.shift(); // cards[0] 제거 후 반환됨
+
+  // 나머지 카드들만 섞기
+  const rest = cards;
+
   // Fisher–Yates Shuffle
-  for (let i = cards.length - 1; i > 0; i--) {
+  for (let i = rest.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [cards[i], cards[j]] = [cards[j], cards[i]];
+    [rest[i], rest[j]] = [rest[j], rest[i]];
   }
 
-  // 기존 요소 제거 후, 섞인 순서대로 다시 append
-  cards.forEach(card => grid.appendChild(card));
+  // 기존 내용 제거
+  grid.innerHTML = "";
+
+  // 첫 카드 먼저 추가
+  grid.appendChild(firstCard);
+
+  // 섞은 카드들 추가
+  rest.forEach(card => grid.appendChild(card));
 });
