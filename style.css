@@ -49,7 +49,7 @@ a:hover {
 
   /* 🔥 여기 두 줄이 핵심 */
   word-break: break-word;         /* 긴 단어도 강제로 줄바꿈 허용 */
-  overflow-wrap: anywhere;        /* 필요하면 아무 데나 끊어서라도 줄바꿈 */
+  /* overflow-wrap: anywhere; */        /* 필요하면 아무 데나 끊어서라도 줄바꿈 */
 
   z-index: 1;
   pointer-events: none;
