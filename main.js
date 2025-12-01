@@ -48,3 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // 섞은 카드들 추가
   rest.forEach(card => grid.appendChild(card));
 });
+
+/* ================================
+   보라색 외곽선 마우스 커서
+================================ */
+document.addEventListener("mousemove", (e) => {
+  const cursor = document.querySelector(".custom-cursor");
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+});
