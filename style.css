@@ -305,4 +305,6 @@ body.project-page .project-text-block a:hover {
 body.project-page .hero-title {
   color: #fff;
   mix-blend-mode: difference;
+  word-break: break-word;         /* 긴 단어도 강제로 줄바꿈 허용 */
+  overflow-wrap: anywhere;        /* 필요하면 아무 데나 끊어서라도 줄바꿈 */
 }
