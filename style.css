@@ -300,3 +300,9 @@ body.project-page .project-text-block a:hover {
     margin-top: 28px;
   }
 }
+
+/* 배경색에 따라 폰트 색상 변경 */
+body.project-page .hero-title {
+  color: #fff;
+  mix-blend-mode: difference;
+}
