@@ -135,17 +135,6 @@ section {
   gap: 48px;
 }
 
-card-grid.lounge {
-  width: 100%;
-  max-width: 960px;
-  padding: 0 16px;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
 /* 개별 카드 */
 .project-card {
   position: relative;
