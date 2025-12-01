@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>[TYPE] PROJECT_TITLE</title>
+    <!-- 예: [MV] PROJECT_TITLE, [DOCU] PROJECT_TITLE 등 -->
+
+    <!-- Pretendard -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+
+    <!-- 루트의 공통 CSS (절대경로) -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <!-- 프로젝트 상세 전용 페이지 -->
+  <body class="project-page">
+    <!-- 🟡 화면 위에 떠 있는 대제목 (메인과 동일 구조) -->
+    <h1 class="hero-title">
+      PROJECT_TITLE_FULL
+      <!-- 예: こっちのけんとーはいよろこんで SPECIAL MUSIC VIDEO IN SEOUL -->
+    </h1>
+
+    <!-- 🟡 실제 콘텐츠: 제목 뒤에서 스크롤되는 영역 -->
+    <main class="project-layout">
+      <!-- (1) 유튜브 컨테이너 – 필요 없으면 이 <section> 통째로 삭제 -->
+      <section class="project-media">
+        <div class="project-media-inner">
+          <div class="project-video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- (2) 이미지 컨테이너 – 여러 장 쓰고 싶으면 이 블록을 복붙해서 아래로 추가 -->
+      <section class="project-media">
+        <div class="project-media-inner">
+          <img src="/images/YOUR_IMAGE_FILE.jpg" alt="프로젝트 스틸컷 설명" />
+        </div>
+      </section>
+
+      <!-- (3) 프로젝트 텍스트 영역 – 전부 h1급 스타일로 나올 것 -->
+      <section class="project-details">
+        <div class="project-text-block">
+          <p>LINE 1 (예: welcome to seoul)</p>
+          <p>role&nbsp;&nbsp;producer</p>
+          <p>year&nbsp;&nbsp;2024</p>
+          <p>
+            client&nbsp;&nbsp;CLIENT NAME /
+            <a href="https://instagram.com/CLIENT_HANDLE" target="_blank" rel="noopener noreferrer">
+              @CLIENT_HANDLE
+            </a>
+          </p>
+          <!-- 필요하면 자유롭게 문단 추가 -->
+          <!-- <p>여기에 프로젝트 설명 문단을 여러 개 써도 됨.</p> -->
+        </div>
+      </section>
+    </main>
+
+    <!-- 🟡 메인과 같은 스크롤 스크립트 (절대경로) -->
+    <script src="/main.js"></script>
+  </body>
+</html>
