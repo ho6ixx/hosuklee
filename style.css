@@ -126,7 +126,7 @@ section {
 /* 카드 리스트 */
 .card-grid {
   width: 100%;
-  max-width: 640px;
+  max-width: 960px;
   padding: 0 16px;
   margin: 0 auto;
 
