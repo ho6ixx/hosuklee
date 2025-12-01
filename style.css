@@ -153,6 +153,13 @@ section {
     box-shadow 0.2s ease;
 }
 
+/* 특정 카드만 폭 1080px */
+.project-card--wide {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* 호버 효과 */
 .project-card:hover {
   transform: translateY(-4px);
