@@ -326,27 +326,36 @@ a.nctwish:hover {
   color: #000;
 }
 
-/* 보라색 + 검정 외곽선 커서 */
+/* ========================= */
+/*  커스텀 커서 스타일       */
+/* ========================= */
 .custom-cursor {
   position: fixed;
-  width: 18px;                 /* 원 크기 */
+  top: 0;
+  left: 0;
+  width: 18px;
   height: 18px;
-  background: #9e00ff;         /* 보라색 */
-  border: 1px solid #000;      /* 검정색 외곽선 */
+  margin-left: -9px;   /* 중심 맞추기 */
+  margin-top: -9px;
   border-radius: 50%;
-  pointer-events: none;        /* 클릭 방해 X */
+  background: #a855f7; /* 보라색 */
+  border: 2px solid #000;
+  pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease-out;
+  opacity: 0;
+  transform: translate(-9999px, -9999px);
+  transition:
+    transform 0.07s ease-out,
+    background-color 0.15s ease,
+    opacity 0.2s ease;
+}
+
+/* 호버 시 주황색으로 변경 */
+.custom-cursor.is-hover {
+  background: #ff9800;
 }
 
 /* 일반 커서를 숨김 */
 body {
   cursor: none;
-}
-
-/* 호버 시 색상을 오렌지로 변경 */
-body.hovering .custom-cursor {
-  background: #ff7b00;           /* 오렌지색 */
-  transform: translate(-50%, -50%) scale(1.4); /* 약간 커지도록 */
 }
