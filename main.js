@@ -57,3 +57,29 @@ document.addEventListener("mousemove", (e) => {
   cursor.style.left = `${e.clientX}px`;
   cursor.style.top = `${e.clientY}px`;
 });
+
+/* ======================================
+   Custom Cursor Script
+====================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cursor = document.querySelector(".custom-cursor");
+
+  // 마우스 움직일 때 커서 위치 업데이트
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+
+  // hover 감지 대상들 (필요하면 클래스 추가 가능)
+  const hoverTargets = document.querySelectorAll("a, button, .project-card");
+
+  hoverTargets.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      document.body.classList.add("hovering");
+    });
+    el.addEventListener("mouseleave", () => {
+      document.body.classList.remove("hovering");
+    });
+  });
+});
