@@ -314,3 +314,14 @@ body.project-page .hero-title {
   word-break: break-word;         /* 긴 단어도 강제로 줄바꿈 허용 */
   overflow-wrap: anywhere;        /* 필요하면 아무 데나 끊어서라도 줄바꿈 */
 }
+
+/* nct wish 전용 컬러 */
+a.nctwish {
+  color: #000;
+  text-decoration: none;
+}
+
+a.nctwish:hover {
+  background: #bbe309;
+  color: #000;
+}
