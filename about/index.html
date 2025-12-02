@@ -11,31 +11,38 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
 
+    <!-- 공통 스타일 (커서 등) -->
+    <link rel="stylesheet" href="/style.css" />
+
     <style>
-      body {
+      /* about 페이지 전용 스타일 */
+      body.about-page {
         margin: 0;
-        padding: 40px 20px;
+        padding: 0 20px;              /* 좌우 여백만, 세로는 0 */
         font-family: "Pretendard", -apple-system, system-ui, Segoe UI, Roboto,
           Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR",
           "Malgun Gothic", sans-serif;
         background: #fff;
         text-align: center;
 
-        /* 🔥 화면 정중앙 배치용 */
         min-height: 100vh;
         display: flex;
-        justify-content: center;   /* 세로 중앙 */
-        align-items: center;       /* 가로 중앙 */
+        flex-direction: column;       /* 세로 방향으로 쌓고 */
+        justify-content: center;      /* 세로 가운데 */
+        align-items: center;          /* 가로 가운데 */
+        box-sizing: border-box;
       }
 
       .about-wrap {
-        /* 내용 전체를 하나의 블록으로 묶어서 가운데에 */
+        /* 필요하면 최대폭 제어도 가능
+        max-width: 640px;
+        */
       }
 
       h2 {
         font-weight: 800;
         font-size: clamp(18px, 5vw, 36px);
-        margin: 10px 0;
+        margin: 8px 0;               /* 간격 살짝 줄임 */
       }
 
       a {
@@ -50,13 +57,11 @@
         background: #000;
       }
     </style>
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
+  <body class="about-page">
     <div class="custom-cursor"></div>
+
     <div class="about-wrap">
       <h2>이호석</h2>
       <h2>hosuk lee</h2>
