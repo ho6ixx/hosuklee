@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>RSVP Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 420px;
+      margin: 80px auto;
+      padding: 20px;
+    }
+    input, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0;
+    }
+    button {
+      background: #111;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>RSVP TEST</h1>
+  <p>Google Sheets 연동 테스트</p>
+
+  <form id="rsvpForm">
+    <input name="name" placeholder="이름" required>
+    <input name="email" type="email"
+           placeholder="이메일" required>
+    <input name="phone" type="tel"
+           placeholder="연락처" required>
+    <button type="submit">신청하기</button>
+  </form>
+
+  <p id="message" role="status"></p>
+
+  <script>
+    const form = document.getElementById("rsvpForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const button = form.querySelector("button");
+      button.disabled = true;
+      message.textContent = "제출 중...";
+
+      const data = Object.fromEntries(
+        new FormData(form).entries()
+      );
+
+      try {
+        const response = await fetch("/api/rsvp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          throw new Error("Submission failed");
+        }
+
+        message.textContent = "신청이 완료되었습니다.";
+        form.reset();
+      } catch (error) {
+        message.textContent =
+          "오류가 발생했습니다. 다시 시도해 주세요.";
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
